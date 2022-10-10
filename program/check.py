@@ -14,13 +14,19 @@ def getFunction(file_path, line_number):
       for i in range(line_number):
         next(file, None)
       for line in file:
-        print(line)
+        writeFunctionToFile(line)
         if line.find('{') != -1:
-          x = x + 1
+          x = x + line.count('{')
+        if x == 0:
+          break
         if line.find('}') != -1:
-          x = x - 1
+          x = x - line.count('}')
         if x == 0:
           break
       break
 
-search_str(r'text.txt', 'dezeFunctie')
+def writeFunctionToFile(line):
+  with open('functions.js', 'a') as file:
+    file.write(line)
+
+search_str(r'text.txt', 'MakeHouse')
