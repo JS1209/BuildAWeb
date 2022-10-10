@@ -3,9 +3,10 @@ import sys
 sys.path.append("..")
 from functions.checks import *
 
-def search_str(read_file, write_file, word):
+def build(read_file, write_file, word):
   if word == '':
     get_whole_file(read_file, write_file)
+    return 0
   else:
     with open(read_file, 'r') as file:
       lines = file.readlines()
@@ -13,7 +14,8 @@ def search_str(read_file, write_file, word):
         if line.find(word) != -1:
           found = True
           get_function_by_brackets(read_file, write_file, lines.index(line))
-          break
+          return 0
+  return 1
 
 def get_whole_file(read_file, write_file):
   while True:
@@ -23,8 +25,8 @@ def get_whole_file(read_file, write_file):
         write_line_to_file(write_file, line)
         write_line_to_file(write_file, bedue)
         if not bedue:
-          break
-      break
+          return 0
+      return 1
 
 def get_function_by_brackets(read_file, write_file, line_number):
   x = 0
@@ -37,23 +39,26 @@ def get_function_by_brackets(read_file, write_file, line_number):
         if line.find('{') != -1:
           x = x + line.count('{')
         if x == 0:
-          break
+          return 0
         if line.find('}') != -1:
           x = x - line.count('}')
         if x == 0:
-          break
-      break
+          return 0
+      return 1
 
 def append_line_to_file(write_file, line):
   with open(write_file, 'a') as file:
     file.write(line)
+    return 0
+  return 1
 
 def write_line_to_file(write_file, line):
   os.makedirs(os.path.dirname(write_file), exist_ok=True)
   if os.path.exists(write_file):
-    print("IT DOES")
     append_line_to_file(write_file, line)
+    return 0
   else:
-    print("IT DOESNT")
     with open(write_file, 'w') as file:
       file.write(line)
+      return 0
+  return 1
