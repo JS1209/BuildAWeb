@@ -55,50 +55,69 @@ def log_menu(user_name, path_to_user):
       return 0
     elif user_input == '':
       print("I really need input broski, you can do it!")
-    else:
-      if user_input.upper() == "STATUS":
-        print('_______________________________________________________')
-        print('STATUS::')
-        with open(tasks_file, 'r') as file:
-          lines = file.readlines()
-          for line in lines:
-            print(line)
-        print('_______________________________________________________')
-      # with open('../../builtSites/' + user_name + '/tasks.txt', 'a') as file:
-      #     file.write(" -> Login: 1\n")
-      elif user_input.upper() == "LOGIN":
-        if login_enabled:
-          print("! ! !WARNING: Disabling login system entirely! ! !")
-          replace_line(tasks_file, "LOGIN: 1", " -> LOGIN: 0\n")
-          login_enabled = False
-        else:
-          print("! ! !WARNING: Enabling login system entirely! ! !")
-          replace_line(tasks_file, "LOGIN: 0", " -> LOGIN: 1\n")
-          login_enabled = True
 
-      elif user_input.upper() == "NAT":
-        if nat_enabled:
-          print("! ! !WARNING: Disabling nationality! ! !")
-          replace_line(tasks_file, "NAT: 1", "    - NAT: 0\n")
-        else:
-          print("! ! !WARNING: Enabling nationality! ! !")
-          replace_line(tasks_file, "NAT: 0", "    - NAT: 1\n")
+    ### STATUS
+    elif user_input.upper() == "STATUS":
+      print('_______________________________________________________')
+      print('STATUS::')
+      with open(tasks_file, 'r') as file:
+        lines = file.readlines()
+        for line in lines:
+          print(line)
+      print('_______________________________________________________')
 
-      elif user_input.upper() == "DOB":
-        if nat_enabled:
-          print("! ! !WARNING: Disabling nationality! ! !")
-          replace_line(tasks_file, "DOB: 1", "    - DOB: 0\n")
-        else:
-          print("! ! !WARNING: Enabling nationality! ! !")
-          replace_line(tasks_file, "DOB: 0", "    - DOB: 1\n")
+    ### SWITCH LOGIN
+    elif user_input.upper() == "LOGIN":
+      if login_enabled:
+        print("! ! !WARNING: Disabling login system entirely! ! !")
+        replace_line(tasks_file, "LOGIN: 1", " -> LOGIN: 0\n")
+        login_enabled = False
+      else:
+        print("! ! !WARNING: Enabling login system entirely! ! !")
+        replace_line(tasks_file, "LOGIN: 0", " -> LOGIN: 1\n")
+        login_enabled = True
 
-      elif user_input.upper() == "NUM":
-        if nat_enabled:
-          print("! ! !WARNING: Disabling nationality! ! !")
-          replace_line(tasks_file, "NUM: 1", "    - NUM: 0\n")
-        else:
-          print("! ! !WARNING: Enabling nationality! ! !")
-          replace_line(tasks_file, "NUM: 0", "    - NUM: 1\n")
+    ### SWITCH NATIONALITY
+    elif user_input.upper() == "NAT":
+      if nat_enabled:
+        print("! ! !WARNING: Disabling nationality! ! !")
+        replace_line(tasks_file, "NAT: 1", "    - NAT: 0\n")
+        nat_enabled = False
+      else:
+        print("! ! !WARNING: Enabling nationality! ! !")
+        replace_line(tasks_file, "NAT: 0", "    - NAT: 1\n")
+        nat_enabled = True
+
+    ### SWITCH DATE OF BIRTH
+    elif user_input.upper() == "DOB":
+      if nat_enabled:
+        print("! ! !WARNING: Disabling nationality! ! !")
+        replace_line(tasks_file, "DOB: 1", "    - DOB: 0\n")
+        dob_enabled = False
+      else:
+        print("! ! !WARNING: Enabling nationality! ! !")
+        replace_line(tasks_file, "DOB: 0", "    - DOB: 1\n")
+        dob_enabled = True
+
+    ### SWITCH PHONENUMBER
+    elif user_input.upper() == "NUM":
+      if nat_enabled:
+        print("! ! !WARNING: Disabling nationality! ! !")
+        replace_line(tasks_file, "NUM: 1", "    - NUM: 0\n")
+        num_enabled = False
+      else:
+        print("! ! !WARNING: Enabling nationality! ! !")
+        replace_line(tasks_file, "NUM: 0", "    - NUM: 1\n")
+        num_enabled = True
+
+    ### BUILD ACCORDING TO TASKS
+    elif user_input.upper() == "UPDATE":
+      if login_enabled:
+        build_login(path_to_user)
+      else:
+        delete_login(path_to_user)
+      
+      
 
 
 def start ():
