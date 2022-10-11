@@ -38,9 +38,15 @@ def log_menu(user_name, path_to_user):
         print("No extra's will be added.")
         build_login(path_to_user, user_name)
         return 0
-      elif user_input == "NAT":
-        print("The Nationality will be added, maybe something else?")
-        update_tasks(user_name, ' -> Login: 1\n     - NAT: 1')
+      elif user_input.upper() == "NAT":
+        print("The Nationality will be added")
+        update_tasks(user_name, '     - NAT: 1\n')
+      elif user_input.upper() == "DOB":
+        print("Date of birth will be added")
+        update_tasks(user_name, '     - NAT: 1\n')
+      elif user_input.upper() == "NUM":
+        print("Phonenumber will be added")
+        update_tasks(user_name, '     - NUM: 1\n')
   
 
 
