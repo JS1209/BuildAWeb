@@ -41,6 +41,8 @@ current folder structure:
     
     - src/ 
         - functions/
+            - global-vars/ 
+                - houses any global variable like user's name
             - dialogs/
                 - give user insight to what is happening using print(), each section of the app will need its own dialogs that can be inserted into BuildAWeb.py when needed. e.g. welcome screen, success/error messages.
             - checks/
