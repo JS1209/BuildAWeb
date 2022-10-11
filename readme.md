@@ -55,4 +55,39 @@ current folder structure:
 - readme.md
     
     
-    
+   -----------------___________________------------------------______________________-------------------____________________----------------____-------
+   
+PROPOSED BY JS1209
+
+- BuildAWebWebsite/ -> When the program works good enough, maybe try to make a website out of the program (frontend react and such, backend python3)
+- builtSites/ -> Same as above
+- program/
+    - sourceFiles/ -> Same as above
+    - src/
+        - BuildAWeb.py -> Houses global variables, is the start up application and thus the binder of all functions
+        - functions/
+            - dialogs/      -> Dialogs for the menu's
+     
+            - menus.py      -> Main menu
+                            -> Feature menu
+                            -> Any other menu
+                            -> Responsible for basic changes in tasks.txt (or ofcourse json)
+                            
+            - writers.py    -> Puts together the files and directories
+                            -> Can copy whole files/directories
+                            -> Can place code in the right place(s) in the right file(s)
+                            -> Calls checkers to check if peace of code/feature is present in source files
+                            -> Calls checkers to check if peace of code/feature is already present in end product (for when feature_builders/removers are
+                               used here)                       
+                        
+            - checkers.py   -> Checks if directories/files exist.
+                            -> Checks if functions exist in sourceFiles (so this scans the .js files for certain functions)
+                            -> Additional checks that are needed throughout the process
+                            -> return 0 if found, return 1 if not found (return 0 because "zero errors have been encountered")
+                            
+            - feature_builders.py   -> Only for inserting ONE feature (multiple functions due to multiple placements of code)
+            - feature_removers.py   -> Only for deleting ONE feature (multiple functions due to multiple deletions of code)
+            
+            - db_management.py -> for database management when changing models/migrations. Only necessary when everything else works
+                            
+    BUILDAWEB CALLS MENU'S, WHICH CALL WRITERS, WHICH CALL CHECKERS
