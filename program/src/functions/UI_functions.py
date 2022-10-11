@@ -2,7 +2,7 @@ import sys
 sys.path.append("..")
 from functions.functionCopying import *
 from functions.checks import *
-import pathlib
+import os
 import shutil
 
 backend_source = '../sourceFiles/'
@@ -21,5 +21,5 @@ def build_login(path_to_user):
   
 def delete_login(path_to_user):
   shutil.rmtree(path_to_user + '/backend/auth/')
-  shutil.rmtree(path_to_user + '/backend/routers/')
+  os.remove(path_to_user + '/backend/routers/auth.js')
   
