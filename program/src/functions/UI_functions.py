@@ -4,7 +4,7 @@ from functions.functionCopying import *
 from functions.checks import *
 import pathlib
 
-backend_source = '../../sourceFiles/'
+backend_source = '../sourceFiles/'
 
 def update_tasks(user_name, line):
   with open('../../builtSites/' + user_name + '/tasks.txt', 'a') as file:

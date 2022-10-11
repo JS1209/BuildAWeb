@@ -60,4 +60,14 @@ def write_line_to_file(write_file, line):
     with open(write_file, 'w') as file:
       file.write(line)
       return 0
-  return 1
+    return 1
+
+def replace_line(write_file, old_line, new_line):
+  with open(write_file, 'r') as file:
+    lines = file.readlines()
+    for line in lines:
+      if line.find(old_line) != -1:
+        lines[lines.index(line)] = new_line
+  with open(write_file, 'w') as file:
+    file.writelines(lines)
+    return 0
