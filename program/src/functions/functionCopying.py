@@ -12,7 +12,6 @@ def build(read_file, write_file, word):
       lines = file.readlines()
       for line in lines:
         if line.find(word) != -1:
-          found = True
           get_function_by_brackets(read_file, write_file, lines.index(line))
           return 0
   return 1
