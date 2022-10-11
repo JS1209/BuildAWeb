@@ -38,9 +38,15 @@ def log_menu(user_name, path_to_user):
         print("No extra's will be added.")
         build_login(path_to_user, user_name)
         return 0
-      elif user_input == "NAT":
-        print("The Nationality will be added, maybe something else?")
-        update_tasks(user_name, ' -> Login: 1\n     - NAT: 1')
+      elif user_input.upper() == "NAT":
+        print("The Nationality will be added")
+        update_tasks(user_name, '     - NAT: 1\n')
+      elif user_input.upper() == "DOB":
+        print("Date of birth will be added")
+        update_tasks(user_name, '     - NAT: 1\n')
+      elif user_input.upper() == "NUM":
+        print("Phonenumber will be added")
+        update_tasks(user_name, '     - NUM: 1\n')
   
 
 
@@ -59,7 +65,7 @@ def start ():
 
   os.makedirs(os.path.dirname('/home/user/code/BuildAWeb/builtSites/' + user_name + '/'), exist_ok=True)
   with open('/home/user/code/BuildAWeb/builtSites/' + user_name + '/tasks.txt', 'w') as file:
-    file.write("NAME: Jesse \n FEATURES: \n")
+    file.write("NAME: %s \n FEATURES: \n" %user_name)
   path_to_user = '/home/user/code/BuildAWeb/builtSites/' + user_name
 
   while True:
