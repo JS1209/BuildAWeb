@@ -31,15 +31,16 @@ def log_menu(user_name, path_to_user):
       return 0
     elif user_input == '':
       print("I really need input broski, you can do it!")
-    elif user_input.upper() == 'NOT':
-      print("No extra's will be added.")
+    else:
       with open('/home/user/code/BuildAWeb/builtSites/' + user_name + '/tasks.txt', 'a') as file:
-        file.write(" -> Login: 1\n")
-      build_login(path_to_user, user_name)
-      return 0
-    elif user_input == "NAT":
-      print("The Nationality will be added, maybe something else?")
-      # update_tasks(user_name, ' -> Login: 1')
+          file.write(" -> Login: 1\n")
+      if user_input.upper() == 'NOT':
+        print("No extra's will be added.")
+        build_login(path_to_user, user_name)
+        return 0
+      elif user_input == "NAT":
+        print("The Nationality will be added, maybe something else?")
+        update_tasks(user_name, ' -> Login: 1\n     - NAT: 1')
   
 
 

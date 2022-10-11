@@ -27,5 +27,5 @@ def build_login(path_to_user, user_name):
     else:
       file.write("    * Routers: 0\n")
   
-def build_model(path_to_user, user_name, options):
+# def build_model(path_to_user, user_name, options):
   
