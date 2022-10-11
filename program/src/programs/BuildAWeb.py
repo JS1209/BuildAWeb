@@ -32,7 +32,7 @@ def log_menu(user_name, path_to_user):
     elif user_input == '':
       print("I really need input broski, you can do it!")
     else:
-      with open('/home/user/code/BuildAWeb/builtSites/' + user_name + '/tasks.txt', 'a') as file:
+      with open('../../builtSites/' + user_name + '/tasks.txt', 'a') as file:
           file.write(" -> Login: 1\n")
       if user_input.upper() == 'NOT':
         print("No extra's will be added.")
@@ -63,10 +63,10 @@ def start ():
   print("------------------------------------------------------------------------------------------------\n\n")
   user_name = input("What is your first name (must be one worded, only characters and numbers): ")
 
-  os.makedirs(os.path.dirname('/home/user/code/BuildAWeb/builtSites/' + user_name + '/'), exist_ok=True)
-  with open('/home/user/code/BuildAWeb/builtSites/' + user_name + '/tasks.txt', 'w') as file:
-    file.write("NAME: %s \n FEATURES: \n" %user_name)
-  path_to_user = '/home/user/code/BuildAWeb/builtSites/' + user_name
+  os.makedirs(os.path.dirname('../../builtSites/' + user_name + '/'), exist_ok=True)
+  with open('../../builtSites/' + user_name + '/tasks.txt', 'w') as file:
+    file.write("NAME: " + user_name + "\n FEATURES: \n")
+  path_to_user = '../../builtSites/' + user_name
 
   while True:
     print("\n_________________________________________________________________________________________________________")

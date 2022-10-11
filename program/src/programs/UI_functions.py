@@ -4,16 +4,16 @@ from functions.functionCopying import *
 from functions.checks import *
 import pathlib
 
-backend_source = '/home/user/code/BuildAWeb/program/sourceFiles/'
+backend_source = '../../sourceFiles/'
 
 def update_tasks(user_name, line):
-  with open('/home/user/code/BuildAWeb/builtSites/' + user_name + '/tasks.txt', 'a') as file:
+  with open('../../builtSites/' + user_name + '/tasks.txt', 'a') as file:
     file.write(line)
     return 0
   return 1
 
 def build_login(path_to_user, user_name):
-  with open('/home/user/code/BuildAWeb/builtSites/' + user_name + '/tasks.txt', 'a') as file:
+  with open('../../builtSites/' + user_name + '/tasks.txt', 'a') as file:
     if build(backend_source + 'backend/auth/jwt.js', path_to_user + '/backend/auth/jwt.js', '') == 0:
       file.write("    * JWT: 1\n")
     else:
