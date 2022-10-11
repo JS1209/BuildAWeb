@@ -52,7 +52,7 @@ current folder structure:
                 - feature_builders.py
                 - feature_removers.py
         - BuildAWeb.py //strictly combines functionality and manages the flow of the app in an organised way, should avoid having logic of itself.
-    - readme.md
+- readme.md
     
     
     
