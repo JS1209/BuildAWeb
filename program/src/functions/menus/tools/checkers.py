@@ -1,7 +1,7 @@
 import os
 import sys
 sys.path.append("..")
-from functions.menus.tools.collectors import *
+# from tools.managers import *
 
 def check_presence_function(file_, word):
   if word != '':

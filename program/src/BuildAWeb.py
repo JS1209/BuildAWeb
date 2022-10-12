@@ -3,7 +3,7 @@ import sys
 from functions.menus.menus import *
 from functions.menus.tools.checkers import *
 from functions.menus.tools.utils import *
-from functions.menus.tools.collectors import *
+from functions.menus.tools.managers import *
 from functions.menus.tools.writers import *
 
 
@@ -115,8 +115,8 @@ def log_menu(user_name, path_to_user):
     elif user_input.upper() == "UPDATE":
       if login_enabled:
         build_login(path_to_user)
-      else:
-        delete_login(path_to_user)
+      # else:
+      #   delete_login(path_to_user)
       
       
 
@@ -133,11 +133,13 @@ def start ():
   print("Feel free to enjoy :) \n")
   print("------------------------------------------------------------------------------------------------\n\n")
   user_name = input("What is your first name (must be one worded, only characters and numbers): ")
+  path_to_user = '../../builtSites/' + user_name + '/'
+  properties = path_to_user + 'properties.json'
 
-  os.makedirs(os.path.dirname('../../builtSites/' + user_name + '/'), exist_ok=True)
-  with open('../../builtSites/' + user_name + '/tasks.txt', 'w') as file:
-    file.write("NAME: " + user_name + "\n FEATURES: \n -> LOGIN: 0\n    - NAT: 0\n    - DOB: 0\n    - NUM: 0\n")
-  path_to_user = '../../builtSites/' + user_name
+  os.makedirs(os.path.dirname(path_to_user), exist_ok=True)
+  initialize_properties(properties, user_name)
+  # with open(properties, 'w') as file:
+  #   file.write("NAME: " + user_name + "\n FEATURES: \n -> LOGIN: 0\n    - NAT: 0\n    - DOB: 0\n    - NUM: 0\n")
 
   while True:
     print("\n_________________________________________________________________________________________________________")
@@ -155,8 +157,9 @@ def start ():
       start()
     elif user_input == '':
       print("I really need input broski, you can do it!")
+    elif user_input.upper() == "TEST":
+      add_json()
     else:
       if user_input.upper() == "LOG":
         log_menu(user_name, path_to_user)
-
 start()

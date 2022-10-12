@@ -2,21 +2,10 @@ import os
 import sys
 sys.path.append("..")
 from functions.menus.tools.checkers import *
+from functions.menus.tools.utils import *
 
-def build(read_file, write_file, word):
-  if word == '':
-    get_whole_file(read_file, write_file)
-    return 0
-  else:
-    with open(read_file, 'r') as file:
-      lines = file.readlines()
-      for line in lines:
-        if line.find(word) != -1:
-          get_function_by_brackets(read_file, write_file, lines.index(line))
-          return 0
-  return 1
 
-def get_whole_file(read_file, write_file):
+def copy_files(read_file, write_file):
   while True:
     with open(read_file, 'r') as file:
       for line in file:
@@ -27,7 +16,43 @@ def get_whole_file(read_file, write_file):
           return 0
       return 1
 
-def get_function_by_brackets(read_file, write_file, line_number):
+def insert_attribute(read_file, write_file, name):
+  json_value_by_key(read_file, "NAT")
+  # with open(read_file, 'r') as r_file:
+    # lines = r_file.readlines()
+    # for line in lines:        
+    #   if line.find(name):
+    #     func = get_func(read_file, lines.index(line))
+    #     print(func)
+
+# def get_func(read_file, index):
+#   x = 0
+#   while True:
+#     with open(read_file, 'r') as file:
+#       for i in range(index):
+#         next(file, None)
+#       for line in file:
+#         func = func.append(line)
+#         if line.find('{') != -1:
+#           x = x + line.count('{')
+#         if line.find('}') != -1:
+#           x = x - line.count('}')
+#         if x == 0:
+#           return func
+#       return 1  
+
+
+def build(read_file, write_file, word):
+  with open(read_file, 'r') as file:
+    lines = file.readlines()
+    for line in lines:
+      if line.find(word) != -1:
+        insert_function_by_linenumber(read_file, write_file, lines.index(line))
+        return 0
+  return 1
+
+
+def insert_function_by_linenumber(read_file, write_file, line_number):
   x = 0
   while True:
     with open(read_file, 'r') as file:
