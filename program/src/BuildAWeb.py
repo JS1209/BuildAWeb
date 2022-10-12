@@ -1,8 +1,10 @@
 import sys
 
-from functions.menus import *
+from functions.menus.menus import *
 from functions.menus.tools.checkers import *
-from program.src.functions.menus.tools.collectors import *
+from functions.menus.tools.utils import *
+from functions.menus.tools.collectors import *
+from functions.menus.tools.writers import *
 
 
 def log_menu(user_name, path_to_user):
