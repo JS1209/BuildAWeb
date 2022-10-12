@@ -1,7 +1,7 @@
 import os
 import sys
 sys.path.append("..")
-from functions.checks import *
+from functions.menus.tools.checkers import *
 
 def build(read_file, write_file, word):
   if word == '':
@@ -49,7 +49,6 @@ def append_line_to_file(write_file, line):
   with open(write_file, 'a') as file:
     file.write(line)
     return 0
-  return 1
 
 def write_line_to_file(write_file, line):
   os.makedirs(os.path.dirname(write_file), exist_ok=True)
@@ -60,7 +59,6 @@ def write_line_to_file(write_file, line):
     with open(write_file, 'w') as file:
       file.write(line)
       return 0
-    return 1
 
 def replace_line(write_file, old_line, new_line):
   with open(write_file, 'r') as file:

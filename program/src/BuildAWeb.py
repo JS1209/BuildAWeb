@@ -1,9 +1,8 @@
 import sys
 
-from functions.functionCopying import *
-from functions.checks import *
-from functions.UI_functions import *
-import pathlib
+from functions.menus import *
+from functions.menus.tools.checkers import *
+from program.src.functions.menus.tools.collectors import *
 
 
 def log_menu(user_name, path_to_user):
