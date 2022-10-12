@@ -158,6 +158,4 @@ def start ():
       if user_input.upper() == "LOG":
         log_menu(user_name, path_to_user)
 
-  # - Make a directory withing "builtSites" (at the root of this project) with all necessary features
-  # - End program
 start()
