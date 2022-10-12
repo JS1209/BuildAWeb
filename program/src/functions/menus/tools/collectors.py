@@ -1,7 +1,7 @@
 import sys
 sys.path.append("..")
-from functions.functionCopying import *
-from functions.checks import *
+from functions.menus.tools.checkers import *
+from functions.menus.tools.writers import *
 import os
 import shutil
 
@@ -11,7 +11,6 @@ def update_tasks(user_name, line):
   with open('../../builtSites/' + user_name + '/tasks.txt', 'a') as file:
     file.write(line)
     return 0
-  return 1
 
 def build_login(path_to_user):
   build(backend_source + 'backend/auth/jwt.js', path_to_user + '/backend/auth/jwt.js', '')

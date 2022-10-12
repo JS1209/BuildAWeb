@@ -1,7 +1,7 @@
 import os
 import sys
 sys.path.append("..")
-from functions.functionCopying import *
+from functions.menus.tools.collectors import *
 
 def check_presence_function(file_, word):
   if word != '':
@@ -11,6 +11,4 @@ def check_presence_function(file_, word):
         for line in lines:
           if line.find(word) != -1:
             return True
-            break
-        
   return False
