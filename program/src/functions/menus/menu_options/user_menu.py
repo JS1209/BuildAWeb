@@ -5,8 +5,9 @@ from functions.tools.menu_browser import *
 from functions.menus.main_menu import *
 
 # menu to show options for user menu
-def user_menu():
+def user_menu(username):
     dialog_user_menu()
+    dialog_here_options()
     menu_options_path = "functions/menus/menu_options/user_menu_options/"
     
     # show all available menu's, takes all menu.py files in menus folder and lists them
