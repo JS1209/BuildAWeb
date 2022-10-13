@@ -67,7 +67,18 @@ def json_update_switch_bottom(file, prop, att, key):
     with open(file, 'w') as json_file:
       json.dump(data, json_file)
 
-# def json_value_by_key(file, key):
-#   with open(file) as jsonFile:
-#     data = json.load(jsonFile)
-#     return(data[key])
+# Returns the values at certain keys at different levels
+def json_value_by_key_top(file, key):
+  with open(file) as jsonFile:
+    data = json.load(jsonFile)
+    return(data[key])
+
+def json_value_by_key_middle(file, prop, key):
+  with open(file) as jsonFile:
+    data = json.load(jsonFile)
+    return(data[prop][key])
+
+def json_value_by_key_bottom(file, prop, att, key):
+  with open(file) as jsonFile:
+    data = json.load(jsonFile)
+    return(data[prop][att][key])
