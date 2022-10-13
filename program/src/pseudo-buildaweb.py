@@ -5,8 +5,8 @@ from functions.menus.main_menu import *
 from functions.menus.tools.dialogs_inputs import *
 
 
-def flow_manager(chosen_menu):
-    if chosen_menu == main_menu:
+def flow_manager(chosen_menu, msg=None):
+    if msg == "initial start":
         dialog_welcome_msg()
 
 
@@ -23,4 +23,4 @@ def flow_manager(chosen_menu):
 
     flow_manager(called_menu)
 
-flow_manager(main_menu)
+flow_manager(main_menu, "initial start")

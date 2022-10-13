@@ -16,10 +16,8 @@ def add_features_menu():
 
     # go back to main menu if instructed
     if your_pick == "main":
-       return main_menu()
+       return None
     else:
-        # open the menu that is closest to whatever the user inputted
-        # menu_caller(menu_options_path, menu_file_names, your_pick)
         return {"menu_options_path": menu_options_path, "menu_file_names": menu_file_names, "your_pick": your_pick}
 
 
@@ -27,6 +25,3 @@ def add_features_menu():
 
 
 
-
-# run this menu when file is selected
-# add_features_menu()

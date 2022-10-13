@@ -3,6 +3,3 @@ def login_menu():
     print("\n\nlogin feature, this should show all posible subfeatures that are possible to add in the login feature i.e. dob, nationality, etc\n\n")
 
 
-
-# run this menu when file is selected
-# login_menu()
