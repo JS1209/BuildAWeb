@@ -8,7 +8,7 @@ from functions.menus.tools.writers import *
 
 
 def log_menu(user_name, path_to_user):
-  tasks_file = '../../builtSites/' + user_name + '/tasks.txt'
+  properties_file = '../../builtSites/' + user_name + '/properties.json'
   login_enabled = False
   nat_enabled = False
   dob_enabled = False
@@ -19,7 +19,7 @@ def log_menu(user_name, path_to_user):
   print("_________________________________________________________________________________________________________")
   print('_________________________________________________________________________________________________________')
   print('STATUS::')
-  with open('../../builtSites/' + user_name + '/tasks.txt', 'r') as file:
+  with open('../../builtSites/' + user_name + '/properties.json', 'r') as file:
     lines = file.readlines()
     for line in lines:
       if line.find("LOGIN: 1") != -1:
@@ -61,7 +61,7 @@ def log_menu(user_name, path_to_user):
     elif user_input.upper() == "STATUS":
       print('_______________________________________________________')
       print('STATUS::')
-      with open(tasks_file, 'r') as file:
+      with open(properties_file, 'r') as file:
         lines = file.readlines()
         for line in lines:
           print(line)
@@ -71,52 +71,51 @@ def log_menu(user_name, path_to_user):
     elif user_input.upper() == "LOGIN":
       if login_enabled:
         print("! ! !WARNING: Disabling login system entirely! ! !")
-        replace_line(tasks_file, "LOGIN: 1", " -> LOGIN: 0\n")
+        replace_line(properties_file, "LOGIN: 1", " -> LOGIN: 0\n")
         login_enabled = False
       else:
         print("! ! !WARNING: Enabling login system entirely! ! !")
-        replace_line(tasks_file, "LOGIN: 0", " -> LOGIN: 1\n")
+        replace_line(properties_file, "LOGIN: 0", " -> LOGIN: 1\n")
         login_enabled = True
 
     ### SWITCH NATIONALITY
     elif user_input.upper() == "NAT":
       if nat_enabled:
         print("! ! !WARNING: Disabling nationality! ! !")
-        replace_line(tasks_file, "NAT: 1", "    - NAT: 0\n")
+        replace_line(properties_file, "NAT: 1", "    - NAT: 0\n")
         nat_enabled = False
       else:
         print("! ! !WARNING: Enabling nationality! ! !")
-        replace_line(tasks_file, "NAT: 0", "    - NAT: 1\n")
+        replace_line(properties_file, "NAT: 0", "    - NAT: 1\n")
         nat_enabled = True
 
     ### SWITCH DATE OF BIRTH
     elif user_input.upper() == "DOB":
       if nat_enabled:
         print("! ! !WARNING: Disabling nationality! ! !")
-        replace_line(tasks_file, "DOB: 1", "    - DOB: 0\n")
+        replace_line(properties_file, "DOB: 1", "    - DOB: 0\n")
         dob_enabled = False
       else:
         print("! ! !WARNING: Enabling nationality! ! !")
-        replace_line(tasks_file, "DOB: 0", "    - DOB: 1\n")
+        replace_line(properties_file, "DOB: 0", "    - DOB: 1\n")
         dob_enabled = True
 
     ### SWITCH PHONENUMBER
     elif user_input.upper() == "NUM":
       if nat_enabled:
         print("! ! !WARNING: Disabling nationality! ! !")
-        replace_line(tasks_file, "NUM: 1", "    - NUM: 0\n")
+        replace_line(properties_file, "NUM: 1", "    - NUM: 0\n")
         num_enabled = False
       else:
         print("! ! !WARNING: Enabling nationality! ! !")
-        replace_line(tasks_file, "NUM: 0", "    - NUM: 1\n")
+        replace_line(properties_file, "NUM: 0", "    - NUM: 1\n")
         num_enabled = True
 
-    ### BUILD ACCORDING TO TASKS
+    ### BUILD ACCORDING TO PROPERTIES
     elif user_input.upper() == "UPDATE":
       if login_enabled:
         build_login(path_to_user)
-      # else:
-      #   delete_login(path_to_user)
+
       
       
 

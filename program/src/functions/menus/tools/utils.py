@@ -1,4 +1,7 @@
+# This file is for every utility functions. They are less focussed on one specific thing than for example managers.py or
+# writers.py. These functions can be called anywhere any time at any level, whereas writers will only be called by managers.
 import json
+import datetime
 
 # We want a tripple nested json object. First we initialize the object by "just writing" a json string in a .json file.
 # Then we fill the object with some basic things that we know there are for sure, like (if) a login system (is enabled) and
@@ -6,9 +9,13 @@ import json
 
 def initialize_properties(properties, user_name):
   with open(properties, 'w') as f:
-    f.write('{"NAME":"%s"}' %user_name)
+    f.write('{}')
     print("Properties created")
+  
+  date = datetime.datetime.now().strftime("%d-%m-%Y, %H:%M:%S")
 
+  json_add_pair_top(properties, "Name", "%s" %user_name)
+  json_add_pair_top(properties, "Datetime", "%s" %date)
   json_add_pair_top(properties, "Systems", {})
   json_add_pair_middle(properties, "Systems", "Login", {})
   json_add_pair_bottom(properties, "Systems", "Login", "Enabled", "0")
@@ -24,21 +31,21 @@ def json_add_pair_top(file, key, value):
     data = json.load(json_file)
     data[key] = value
     with open(file, 'w') as json_file:
-      json.dump(data, json_file)
+      json.dump(data, json_file, indent=2)
 
 def json_add_pair_middle(file, prop, key, value):
   with open(file) as json_file:
     data = json.load(json_file)
     data[prop][key] = value
     with open(file, 'w') as json_file:
-      json.dump(data, json_file)
+      json.dump(data, json_file, indent=2)
 
 def json_add_pair_bottom(file, prop, att, key, value):
   with open(file) as json_file:
     data = json.load(json_file)
     data[prop][att][key] = value
     with open(file, 'w') as json_file:
-      json.dump(data, json_file)
+      json.dump(data, json_file, indent=2)
 
 # The next functions update the properties.json, for enabling the login system for example, or switching the NUM or DOB attributes. Since
 # we only work with 0's and 1's, we only need the key, and set its value to the opposite of what it is. I named it json_update_switch because

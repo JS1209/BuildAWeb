@@ -4,7 +4,9 @@ sys.path.append("..")
 from functions.menus.tools.checkers import *
 from functions.menus.tools.utils import *
 
-
+# copy_files copies whole files, without checking if anything is double. This function is only called when
+# absolutely sure certain directories/files are not yet present, for example when enabling login system.
+# The check if a directory/file is present is done in the function that calls this one.
 def copy_files(read_file, write_file):
   while True:
     with open(read_file, 'r') as file:
@@ -16,8 +18,13 @@ def copy_files(read_file, write_file):
           return 0
       return 1
 
+
+# ------------------------------------------------- FROM HERE ON I'M STILL BUSY REWRITING THE PROGRAM
+# ------------------------------------------------- FUNCTIONS WORK, BUT I WILL CHANGE THEM A LOT!!!!!
+
+
 def insert_attribute(read_file, write_file, name):
-  json_value_by_key(read_file, "NAT")
+  asdf = read_file
   # with open(read_file, 'r') as r_file:
     # lines = r_file.readlines()
     # for line in lines:        

@@ -34,9 +34,7 @@ def build_login(path_to_user):
   # insert it in the model. To keep it simple, we add it as the second attribute, after id.
   if (os.path.exists(path_to_user + "/backend/models/user.js")) == False:
     copy_files(source + 'backend/models/user.js', path_to_user + 'backend/models/user.js')
-    insert_attribute(source + 'backend/models/attributes.json', path_to_user + 'backend/models/user.js', "nationality")
 
-  
-# def delete_login(path_to_user):
-#   shutil.rmtree(path_to_user + '/backend/auth/')
-#   os.remove(path_to_user + '/backend/routers/auth.js')
+  if (os.path.exists(path_to_user + "/backend/migrations/user.js")) == False:
+    copy_files(source + 'backend/migrations/user.js', path_to_user + 'backend/migrations/user.js')
+
