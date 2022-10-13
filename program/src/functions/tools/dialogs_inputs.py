@@ -3,7 +3,7 @@
 
 def dialog_welcome_msg():
     print("\n\n\n~~~~````****~~~~````****~~~~````****~~~~````****~~~~````****~~~~````****~~~~````****~~~~````****")
-    print("\nWelcome to the website builder v1.0 made by JS1209")
+    print("\nWelcome to the website builder v1.0 made by JS1209 & Atubak")
     print("This application is intended for personal use, so please don't do get me in trouble. Thanks, yours truly\n\n")
     print("If you want to stop this program, at any time type STOP")
     print("If at any time you want to restart the program, type RESTART")

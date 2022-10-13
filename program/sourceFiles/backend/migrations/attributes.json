@@ -1,0 +1,5 @@
+{
+  "NAT": "nationality: {type: Sequelize.STRING, allowNull: false, unique: false},",
+  "DOB": "date_of_birth: {type: Sequelize.STRING, allowNull: false, unique: false},",
+  "NUM": "phone_number: {type: Sequelize.STRING, allowNull: false, unique: false},"
+}

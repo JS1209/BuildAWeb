@@ -1,5 +1,6 @@
 import os
 import sys
+from unittest.util import three_way_cmp
 sys.path.append("..")
 from functions.tools.checkers import *
 from functions.tools.utils import *
@@ -17,6 +18,19 @@ def copy_files(read_file, write_file):
         if not bedue:
           return 0
       return 1
+
+def insert_lines_in_file_by_index(read_file, lines_two, index):
+  with open(read_file, "r") as file:
+    lines = file.readlines()
+    lines_one = lines[0:index]
+    lines_one.append(lines_two)
+    lines_three = lines[index:len(lines)]
+    new_model = lines_one + lines_three
+  
+  with open(read_file, "w") as file:
+    for line in new_model:
+      file.write(line)
+
 
 
 # ------------------------------------------------- FROM HERE ON I'M STILL BUSY REWRITING THE PROGRAM

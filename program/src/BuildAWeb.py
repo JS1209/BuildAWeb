@@ -1,7 +1,6 @@
 import sys
 
 
-from functions.menus import *
 from functions.tools.checkers import *
 from functions.tools.utils import *
 from functions.tools.managers import *
@@ -71,36 +70,21 @@ def log_menu(user_name, path_to_user):
 
     ### SWITCH LOGIN
     elif user_input.upper() == "LOGIN":
-      if login_enabled:
-        print("! ! !WARNING: Disabling login system entirely! ! !")
-        replace_line(properties_file, "LOGIN: 1", " -> LOGIN: 0\n")
-        login_enabled = False
-      else:
-        print("! ! !WARNING: Enabling login system entirely! ! !")
-        replace_line(properties_file, "LOGIN: 0", " -> LOGIN: 1\n")
-        login_enabled = True
+      print("! ! !WARNING: Disabling login system entirely! ! !")
+      json_update_switch_feature(properties_file, "Login")
+      login_enabled = not login_enabled
 
     ### SWITCH NATIONALITY
     elif user_input.upper() == "NAT":
-      if nat_enabled:
-        print("! ! !WARNING: Disabling nationality! ! !")
-        replace_line(properties_file, "NAT: 1", "    - NAT: 0\n")
-        nat_enabled = False
-      else:
-        print("! ! !WARNING: Enabling nationality! ! !")
-        replace_line(properties_file, "NAT: 0", "    - NAT: 1\n")
-        nat_enabled = True
+      print("! ! !WARNING: Disabling nationality! ! !")
+      json_update_switch_attribute(properties_file, "Systems", "Login", "NAT")
+      nat_enabled = not nat_enabled
 
     ### SWITCH DATE OF BIRTH
     elif user_input.upper() == "DOB":
-      if nat_enabled:
-        print("! ! !WARNING: Disabling nationality! ! !")
-        replace_line(properties_file, "DOB: 1", "    - DOB: 0\n")
-        dob_enabled = False
-      else:
-        print("! ! !WARNING: Enabling nationality! ! !")
-        replace_line(properties_file, "DOB: 0", "    - DOB: 1\n")
-        dob_enabled = True
+      print("! ! !WARNING: Disabling nationality! ! !")
+      json_update_switch_attribute(properties_file, "Systems", "Login", "DOB")
+      dob_enabled = not dob_enabled
 
     ### SWITCH PHONENUMBER
     elif user_input.upper() == "NUM":
