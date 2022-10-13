@@ -1,7 +1,7 @@
 import os
 
-from functions.menus.tools.dialogs_inputs import *
-from functions.menus.tools.menu_browser import *
+from functions.tools.dialogs_inputs import *
+from functions.tools.menu_browser import *
 from functions.menus.main_menu import *
 
 # menu to remove features, shows all available features to remove, also possible to remove the whole feature in its entirety

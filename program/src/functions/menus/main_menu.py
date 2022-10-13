@@ -1,7 +1,7 @@
 import os
 
-from functions.menus.tools.dialogs_inputs import *
-from functions.menus.tools.menu_browser import *
+from functions.tools.dialogs_inputs import *
+from functions.tools.menu_browser import *
 
 # starting menu, shows welcome message and asks for user, initial options like adding/removing feats
 def main_menu(): 
