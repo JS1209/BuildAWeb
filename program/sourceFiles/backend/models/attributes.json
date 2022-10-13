@@ -1,0 +1,1 @@
+{"NAT": "nationality: { type: DataTypes.STRING, unique: false, allowNull: false },", "DOB": "date_of_birth: { type: DataTypes.STRING, unique: false, allowNull: false },"}

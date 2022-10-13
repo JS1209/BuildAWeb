@@ -1,6 +1,0 @@
-NAME: fdas
- FEATURES: 
- -> LOGIN: 1
-    - NAT: 0
-    - DOB: 0
-    - NUM: 0
