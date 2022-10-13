@@ -5,8 +5,9 @@ from functions.tools.menu_browser import *
 from functions.menus.main_menu import *
 
 # menu to remove features, shows all available features to remove, also possible to remove the whole feature in its entirety
-def remove_features_menu():
+def remove_features_menu(username):
     dialog_remove_feature_menu()
+    dialog_here_options()
     menu_options_path = "functions/menus/menu_options/remove_features_menu_options/"
 
     # show all available menu's, takes all menu.py files in menus folder and lists them

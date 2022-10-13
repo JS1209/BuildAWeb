@@ -33,8 +33,7 @@ def build_login(path_to_user):
   # First copy the model, then check what extra's the user wanted (dob, nat, num). Get that attribute from a a list of attributes and
   # insert it in the model. To keep it simple, we add it as the second attribute, after id.
   if (os.path.exists(path_to_user + "/backend/models/user.js")) == False:
-    copy_files(source + 'backend/models/user.js', path_to_user + 'backend/models/user.js')
+    copy_files(source + 'backend/models/user.js', path_to_user + '/backend/models/user.js')
 
   if (os.path.exists(path_to_user + "/backend/migrations/user.js")) == False:
-    copy_files(source + 'backend/migrations/user.js', path_to_user + 'backend/migrations/user.js')
-
+    copy_files(source + 'backend/migrations/20220523140102-create-user.js', path_to_user + '/backend/migrations/user.js')
