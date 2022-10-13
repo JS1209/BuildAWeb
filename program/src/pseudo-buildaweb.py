@@ -2,7 +2,7 @@
 
 from subprocess import call
 from functions.menus.main_menu import *
-from functions.menus.tools.dialogs_inputs import *
+from functions.tools.dialogs_inputs import *
 
 
 def flow_manager(chosen_menu, msg=None):

@@ -1,6 +1,6 @@
 import importlib
 import os
-from functions.menus.tools.dialogs_inputs import *
+from functions.tools.dialogs_inputs import *
 
 
 # takes all menu options that go to submenus and display them in terminal
