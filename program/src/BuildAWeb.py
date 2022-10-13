@@ -1,6 +1,6 @@
 import sys
 
-from functions.menus.menus import *
+from program.src.functions.menus.main_menu import *
 from functions.menus.tools.checkers import *
 from functions.menus.tools.utils import *
 from functions.menus.tools.collectors import *

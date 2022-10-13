@@ -32,7 +32,6 @@ def dialog_add_feature_menu():
 ###########################################################################
 
 def input_menu_option_pick():
-    print("(type 'main' to go back to main menu)")
     return input("\nWrite your pick down here: ")
 
 def input_back_to_main_menu():

@@ -1,5 +1,6 @@
+import importlib
 import os
-from tools.dialogs_inputs import *
+from functions.menus.tools.dialogs_inputs import *
 
 
 # takes all menu options that go to submenus and display them in terminal
@@ -29,4 +30,6 @@ def menu_caller(path_of_options_menu, menu_files, user_input):
             
             # call the corresponding menu
             importable_file_name = file_name.replace(".py", "")
-            exec("import %s%s" % (path_of_options_menu.replace("/", "."), importable_file_name))
+            
+            chosen_menu = importlib.import_module(path_of_options_menu.replace("/", ".") + importable_file_name)
+            return getattr(chosen_menu, importable_file_name)
