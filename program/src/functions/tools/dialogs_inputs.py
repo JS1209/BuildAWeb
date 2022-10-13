@@ -29,6 +29,8 @@ def dialog_menu_option(x):
     print("- " + no_space)
     return no_space
 
+
+# open json and show the specific feature's status
 def dialog_show_json(feature_name, username):
     file = open("../../builtSites/%s/properties.json" % username)
     data = json.dumps(json.load(file)["Systems"][feature_name])
