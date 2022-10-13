@@ -1,7 +1,7 @@
 import sys
 
-from functions.menus.tools.checkers import *
-from functions.menus.tools.writers import *
+from functions.tools.checkers import *
+from functions.tools.writers import *
 import os
 import shutil
 

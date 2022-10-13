@@ -1,8 +1,8 @@
 import os
 import sys
 sys.path.append("..")
-from functions.menus.tools.checkers import *
-from functions.menus.tools.utils import *
+from functions.tools.checkers import *
+from functions.tools.utils import *
 
 # copy_files copies whole files, without checking if anything is double. This function is only called when
 # absolutely sure certain directories/files are not yet present, for example when enabling login system.
