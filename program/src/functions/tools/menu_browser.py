@@ -11,13 +11,15 @@ def menu_option_displayer(path_of_options_menu):
     options_folder = os.listdir(path_of_options_menu)
     for data in options_folder:
         
-        if data.endswith("_menu.py"):
+        # if there's more menus, add them to the options
+        if data.endswith("_menu.py") or data.endswith("_feature.py"):
             # add filenames to list
             menu_file_names.append(data)
 
             # prints files as options to look better for user and adds those strings to pickable_options
             # pickable_options.append(dialog_menu_option(data))
             dialog_menu_option(data)
+
 
     return menu_file_names
 
