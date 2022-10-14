@@ -59,9 +59,12 @@ def build_login(path_to_user):
   migration_line = check_migration_placement(path_to_user, "1-create-user")
 
   for feat in feature_lines_for_models:
-    print(feat)
     if check_if_att_in_model(path_to_user, "user", feat) == 1:
       insert_lines_in_file_by_index(path_to_user + 'backend/models/user.js', feat, model_line)
+  
+  # for featt in feature_lines_for_migrations:
+  #   if check_if_att_in_migration(path_to_user, "1-create-user", featt) == 1:
+  #     insert_lines_in_file_by_index((path_to_user + "backend/migrations/1-create-user.js", featt, migration_line ))
 
 
   # Now we check for the right place to insert it and then call the writers that right the function

@@ -64,6 +64,13 @@ def check_if_att_in_model(path_to_user, model, att):
         return 0
   return 1
 
+def check_if_att_in_migration(path_to_user, migration, att):
+  with open(path_to_user + "backend/migrations/" + migration + ".js", "r") as file:
+    lines = file.readlines()
+    for line in lines:
+      if line.find(att) != -1:
+        return 0
+  return 1
 
 # def check_migration_placement():
 #   asdf = "asdf"
