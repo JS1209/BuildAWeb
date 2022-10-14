@@ -1,1 +1,5 @@
-{"NAT": "nationality: { type: DataTypes.STRING, unique: false, allowNull: false },", "DOB": "date_of_birth: { type: DataTypes.STRING, unique: false, allowNull: false },"}
+{
+  "NAT": "nationality: { type: DataTypes.STRING, unique: false, allowNull: false },",
+  "DOB": "date_of_birth: { type: DataTypes.STRING, unique: false, allowNull: false },",
+  "NUM": "phone_number: { type: DataTypes.STRING, unique: false, allowNull: false },"  
+}

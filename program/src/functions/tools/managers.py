@@ -2,6 +2,7 @@ import sys
 
 from functions.tools.checkers import *
 from functions.tools.writers import *
+from functions.tools.utils import *
 import os
 import shutil
 
@@ -35,5 +36,40 @@ def build_login(path_to_user):
   if (os.path.exists(path_to_user + "/backend/models/user.js")) == False:
     copy_files(source + 'backend/models/user.js', path_to_user + '/backend/models/user.js')
 
+<<<<<<< HEAD
+  if (os.path.exists(path_to_user + "/backend/migrations/1-create-user.js")) == False:
+    copy_files(source + 'backend/migrations/1-create-user.js', path_to_user + 'backend/migrations/1-create-user.js')
+
+  # Now we need to apply all the extra attributes. All the enabled attributes are added to an array,
+  # where we loop over and per attribute we add the necessary lines to the files.
+  prop_file = path_to_user + 'properties.json'
+  features_dict = json_value_by_key_middle(prop_file, "Systems", "Login")
+  enabled_features = []
+  for key in features_dict:
+    if features_dict[key] == 1 and key != 'Enabled':
+      enabled_features.append(key)
+
+  # We load the necessary lines to be added in arrays, and insert them later in the right spot
+  feature_lines_for_models = []
+  feature_lines_for_migrations = []
+  for feat in enabled_features:
+    feature_lines_for_models.append("      " + json_value_by_key_top(source + 'backend/models/attributes.json', feat) + "\n")
+    feature_lines_for_migrations.append("       " + json_value_by_key_top(source + 'backend/migrations/attributes.json', feat) + "\n")
+
+  model_line = check_model_placement(path_to_user, "user")
+  migration_line = check_migration_placement(path_to_user, "1-create-user")
+
+  for feat in feature_lines_for_models:
+    if check_if_att_in_model(path_to_user, "user", feat) == 1:
+      insert_lines_in_file_by_index(path_to_user + 'backend/models/user.js', feat, model_line)
+  
+  # for featt in feature_lines_for_migrations:
+  #   if check_if_att_in_migration(path_to_user, "1-create-user", featt) == 1:
+  #     insert_lines_in_file_by_index((path_to_user + "backend/migrations/1-create-user.js", featt, migration_line ))
+
+
+  # Now we check for the right place to insert it and then call the writers that right the function
+=======
   if (os.path.exists(path_to_user + "/backend/migrations/user.js")) == False:
     copy_files(source + 'backend/migrations/20220523140102-create-user.js', path_to_user + '/backend/migrations/user.js')
+>>>>>>> 03f54eea0c1413735b288e9ea7da6aec3b7326bf
