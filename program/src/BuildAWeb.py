@@ -100,6 +100,7 @@ def log_menu(user_name, path_to_user):
     ### BUILD ACCORDING TO PROPERTIES
     elif user_input.upper() == "UPDATE":
       if login_enabled:
+        print("AAA")
         build_login(path_to_user)
 
       
@@ -117,14 +118,13 @@ def start ():
   print("If at any time you feel like spending money just for the sake of it, please contact me at jesje1209@live.nl \n")
   print("Feel free to enjoy :) \n")
   print("------------------------------------------------------------------------------------------------\n\n")
+
   user_name = input("What is your first name (must be one worded, only characters and numbers): ")
   path_to_user = '../../builtSites/' + user_name + '/'
   properties = path_to_user + 'properties.json'
 
   os.makedirs(os.path.dirname(path_to_user), exist_ok=True)
   initialize_properties(properties, user_name)
-  # with open(properties, 'w') as file:
-  #   file.write("NAME: " + user_name + "\n FEATURES: \n -> LOGIN: 0\n    - NAT: 0\n    - DOB: 0\n    - NUM: 0\n")
 
   while True:
     print("\n_________________________________________________________________________________________________________")
@@ -147,4 +147,5 @@ def start ():
     else:
       if user_input.upper() == "LOG":
         log_menu(user_name, path_to_user)
+
 start()
