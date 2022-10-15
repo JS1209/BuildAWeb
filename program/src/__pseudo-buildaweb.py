@@ -7,10 +7,11 @@ from functions.tools.checkers import check_presence_function
 from functions.tools.utils import initialize_properties
 
 
+user = input_username()
+path_to_user = '../../builtSites/' + user + '/'
+properties = path_to_user + 'properties.json'
+
 def flow_manager(chosen_menu):
-    
-
-
 
     # passed menu functions will return a dictionary with menu_options_path, menu_file_names, your_pick that lead to the next menu 
     picked_menu_info = chosen_menu(user)
@@ -23,14 +24,9 @@ def flow_manager(chosen_menu):
     # open the menu or call the feature that is closest to whatever the user inputted
     called_menu = menu_caller(picked_menu_info["menu_options_path"], picked_menu_info["menu_file_names"], picked_menu_info["your_pick"])
 
-    
-
     flow_manager(called_menu)
 
 #####################################
-user = input_username()
-path_to_user = '../../builtSites/' + user + '/'
-properties = path_to_user + 'properties.json'
 
 
 dialog_welcome_msg()
@@ -43,8 +39,6 @@ else:
 
     os.makedirs(os.path.dirname(path_to_user), exist_ok=True)
     initialize_properties(properties, user)
-    
 
-    
 
 flow_manager(main_menu)

@@ -17,11 +17,19 @@ def initialize_properties(properties, user_name):
   json_add_pair_top(properties, "Name", "%s" %user_name)
   json_add_pair_top(properties, "Datetime", "%s" %date)
   json_add_pair_top(properties, "Systems", {})
+  json_add_pair_top(properties, "Models", {})
   json_add_pair_middle(properties, "Systems", "Login", {})
   json_add_pair_bottom(properties, "Systems", "Login", "Enabled", 0)
   json_add_pair_bottom(properties, "Systems", "Login", "DOB", 0)
   json_add_pair_bottom(properties,"Systems", "Login", "NUM", 0)
   json_add_pair_bottom(properties, "Systems", "Login", "NAT", 0)
+  # json_add_pair_middle(properties, "Models", "Login", "user")
+  json_add_pair_middle(properties, "Systems", "Spaces", {})
+  json_add_pair_bottom(properties, "Systems", "Spaces", "Enabled", 0)
+  json_add_pair_bottom(properties, "Systems", "Spaces", "SPACE", 0)
+  json_add_pair_bottom(properties,"Systems", "Spaces", "SPACE", 0)
+  # json_add_pair_middle(properties, "Systems", "Spaces", "space")
+  # json_add_pair_middle(properties, "Systems", "Spaces", "story")
 
 # Each of the following functions can change a pair nested deeper in the object. They work exactly the same. Three levels, hence top,
 # middle and bottom. To access a key-value pair, first open the file (json.load(file) handles the key lookup functionality), then
