@@ -1,6 +1,8 @@
 from tkinter import *
 from tkinter import Menu
 
+# Deze imports werken, ik kan hier gewoon menubar aanroepen zoals ik
+# gewend ben
 from GUI.backend_page import *
 from GUI.components.menu_bar import *
 

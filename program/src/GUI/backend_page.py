@@ -1,8 +1,14 @@
 from tkinter import *
 from tkinter import Menu
 
-def backend_page(window):
-  page1text = Label(window, text="This is page 1")
-  page2text = Label(window, text="This is page 2")
-  page2text.pack_forget()
-  page1text.pack()
+# Ik heb geen idee of dit werkt, want ik kom nog niet bij dit scherm :P
+from GUI.components.menu_bar import *
+
+def backend_page():
+  print("BACKENDPAGEEEEEEEE")
+  # window = Tk()
+  # window['bg']='#ffbf00'
+  # window.geometry("800x700")
+  # window.title("Build A Web - Backend")
+  # window.config(menu=menu_bar(window))
+  # window.mainloop()
